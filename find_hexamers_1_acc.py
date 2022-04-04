@@ -31,11 +31,11 @@ output_file = sys.argv[5]
 # prefix of the output files
 
 K = int(sys.argv[6])
+# kmer length
 
 output_file_2 = open(output_file + "_avged.tsv", "w+")
-# print("started", time.time() - start_time)
-# vcf_file = "used_SNPs_female_donor_minus.vcf"
-# file_sites = "female_donor_minus_mutant_used_sites.txt"
+# open file to store all analysed sites info
+
 MAX_DEL_SIZE = 20
 RANGE = K + MAX_DEL_SIZE
 REF_AL = "0/0"
@@ -63,7 +63,7 @@ def vcf_ecoID_to_num(accession):
 
 def get_site(line, ls = True):
     # returns chromosome and site position from the input line
-    # example input format: /home/stefanp/ax22_scratch/SEECR_Analyses/Stefan_DGRP/SpliSER_output/3R_1_950/SpliSER.FBgn0000003_6822509.tsv
+    # example input format: /home/.../SpliSER_output/3R_1_950/SpliSER.FBgn0000003_6822509.tsv
     # set ls = False if sites list is a tsv 
     if ls:
         chr = line.strip().split("/")[-2].split("_")[0]
